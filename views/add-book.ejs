@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head.ejs') %>
+  <body>
+    <div class="navigation"><%- include('partials/nav.ejs') %></div>
+    <div class="container">
+      <div class="row">
+        <form method="post" action="/books">
+          <label for="name">Name</label>
+          <input type="text" name="name" required /> <br />
+          <label for="name">Description</label>
+          <input type="text" name="description" required /> <br />
+          <label for="name">Publisher</label>
+          <input type="text" name="publisher" required /> <br />
+          <label for="name">Published Date</label>
+          <input type="date" name="publishedDate" required /> <br />
+          <label for="name">Author</label>
+          <input type="text" name="author" required /> <br />
+
+          <label for="name">Location</label>
+          <input type="text" name="location" required /> <br />
+          <label for="name">Page Count</label>
+          <input type="number" name="pagesCount" required /> <br />
+          <label for="name">Status</label>
+          <input type="radio" name="status" value="IN" /> In
+          <input type="radio" name="status" value="OUT" /> Out
+          <input type="radio" name="status" value="NA" /> Not available<br />
+
+          <button type="submit" class="btn btn-primary">Save New Book</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

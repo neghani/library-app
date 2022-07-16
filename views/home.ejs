@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head.ejs') %>
+  <body>
+    <div class="navigation"><%- include('partials/nav.ejs') %></div>
+    <div class="container">
+      <h1>Hello world!</h1>
+      <div class="container">
+        <div class="messages">
+          <% const messages = getMessages() %>
+          <div class="success">
+            <% if(messages.success) {%> <% messages.success.forEach((elem)=>{ %>
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <%= elem %>
+            </div>
+            <% }) %> <% }%>
+
+            <% if(messages.fail) {%> <% messages.fail.forEach((elem)=>{ %>
+              <div class="alert alert-danger alert-dismissible" role="alert">
+                <%= elem %>
+              </div>
+              <% }) %> <% }%>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <% if(data.length==0){ %>
+        <h4 class="text-muted">There are no book in the library.</h4>
+        <% } %>
+        <div class="row">
+          <% data.forEach((book)=>{ %>
+
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= book.name %></h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  <%= book.description %>
+                </h6>
+
+                <h6 class="card-subtitle mb-2 text-muted">
+                  <%= book.author %>
+                </h6>
+                <span class="badge text-bg-secondary"> <%= book.status %></span>
+                <a
+                  href="/books/delete/<%= book.id %>"
+                  class="card-link link-danger"
+                >
+                  Delete
+                </a>
+                <a
+                href="/books/edit/<%= book.id %>"
+                class="card-link link-primary"
+              >
+                Edit
+              </a>
+              </div>
+            </div>
+          </div>
+
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

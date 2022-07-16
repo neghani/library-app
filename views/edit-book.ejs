@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head.ejs') %>
+  <body>
+    <div class="navigation"><%- include('partials/nav.ejs') %></div>
+    <div class="container">
+      <div class="row">
+        <!-- <%= JSON.stringify(data)  %>  -->
+        <form method="POST" action="/books/edit/<%=data.id  %> ">
+          <!-- <label for="name">Name</label>
+          <input type="text" name="name" required value="<%= data.name  %> " /> -->
+          <br />
+          <label for="name">Description</label>
+          <input
+            type="text"
+            name="description"
+            value="<%= data.description  %> "
+            required
+          />
+          <br />
+          <label for="name">Publisher</label>
+          <input
+            type="text"
+            name="publisher"
+            required
+            value="<%= data.publisher  %> "
+          />
+          <br />
+          <label for="name">Published Date</label>
+          <input
+            type="date"
+            name="publishedDate"
+            value="<%= data.publishedDate  %>"
+            
+          />
+          <%= data.publishedDate  %>
+          <br />
+          <label for="name">Author</label>
+          <input
+            type="text"
+            name="author"
+            value="<%= data.author  %> "
+            required
+          />
+          <br />
+
+          <label for="name">Location</label>
+          <input
+            type="text"
+            name="location"
+            required
+            value="<%= data.location  %> "
+          />
+          <br />
+          <label for="name">Page Count</label>
+          <input
+            type="number"
+            name="pagesCount"
+            value="<%= parseInt(data.pagesCount)%>"
+            required
+          />
+          <br />
+          <label for="name">Status</label>
+          <input type="radio" name="status" value="IN" /> In
+          <input type="radio" name="status" value="OUT" /> Out
+          <input type="radio" name="status" value="NA" /> Not available<br />
+
+          <button type="submit" class="btn btn-primary">Save New Book</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
