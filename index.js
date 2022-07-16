@@ -10,7 +10,7 @@ const session = require("express-session");
 
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 app.use(flash());
 app.use(
