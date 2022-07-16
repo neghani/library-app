@@ -17,7 +17,6 @@ app.use(
   })
 );
 
-console.log("this is now from heroku env -->", process.env.NODE_ENV)
 if (process.env.NODE_ENV != "production") {
   env.config();
 }
